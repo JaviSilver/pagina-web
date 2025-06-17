@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier Mesonero Moro - Desarrollador Multiplataforma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+            emailjs.init({
+    publicKey: 'X6I2MUCr2EMnoPwhk'
+});
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 25%, #6366f1 50%, #8b5cf6 75%, #ec4899 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.4;
+        }
+
+        .shape:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            left: 15%;
+            background: radial-gradient(circle, #22d3ee, #0ea5e9);
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 20%;
+            background: radial-gradient(circle, #8b5cf6, #6366f1);
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 15%;
+            left: 10%;
+            background: radial-gradient(circle, #ec4899, #f97316);
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 90px;
+            height: 90px;
+            top: 60%;
+            right: 10%;
+            background: radial-gradient(circle, #eab308, #22d3ee);
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+
+            33% {
+                transform: translateY(-30px) rotate(120deg) scale(1.1);
+            }
+
+            66% {
+                transform: translateY(15px) rotate(240deg) scale(0.9);
+            }
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(14, 165, 233, 0.3);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: linear-gradient(45deg, #0ea5e9, #22d3ee);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .social-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-hover:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5);
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #0ea5e9, #22d3ee, #8b5cf6);
+            background-size: 200% 200%;
+            animation: gradientMove 3s ease infinite;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
+            animation-duration: 1s;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+            color: #22d3ee;
+            filter: drop-shadow(0 0 10px #22d3ee);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .navbar {
+            background: rgba(14, 165, 233, 0.1);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(14, 165, 233, 0.2);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+        }
+
+        .pulse-slow {
+            animation: pulse-magical 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-magical {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7), 0 0 30px rgba(34, 211, 238, 0.3);
+            }
+
+            50% {
+                opacity: 0.9;
+                box-shadow: 0 0 0 20px rgba(14, 165, 233, 0), 0 0 50px rgba(34, 211, 238, 0.6);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #22d3ee, #8b5cf6, #ec4899);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGradient 4s ease-in-out infinite;
+        }
+
+        @keyframes textGradient {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .fantasy-glow {
+            box-shadow:
+                0 0 20px rgba(14, 165, 233, 0.3),
+                0 0 40px rgba(34, 211, 238, 0.2),
+                0 0 60px rgba(139, 92, 246, 0.1);
+        }
+
+        .project-card {
+            background: linear-gradient(135deg,
+                    rgba(14, 165, 233, 0.1) 0%,
+                    rgba(34, 211, 238, 0.05) 25%,
+                    rgba(139, 92, 246, 0.1) 50%,
+                    rgba(236, 72, 153, 0.05) 75%,
+                    rgba(14, 165, 233, 0.1) 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, #0ea5e9, #22d3ee, #8b5cf6, #ec4899);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            z-index: -1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #22d3ee, transparent);
+            border-radius: 50%;
+            animation: float-particle 6s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Mejoras para móvil */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem !important;
+            }
+
+            .section-title {
+                font-size: 2rem !important;
+            }
+
+            .card-padding {
+                padding: 1.5rem !important;
+            }
+
+            .tech-badge {
+                font-size: 0.75rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+
+            .section-title {
+                font-size: 1.75rem !important;
+            }
+
+            .card-padding {
+                padding: 1.25rem !important;
+            }
+        }
+
+        /* Efectos de interacción mejorados */
+        .interactive-element {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-element:hover {
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        /* Animación de entrada escalonada */
+        .stagger-animation {
+            animation-fill-mode: both;
+        }
+
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
+
+        .stagger-6 {
+            animation-delay: 0.6s;
+        }
+
+        .stagger-7 {
+            animation-delay: 0.7s;
+        }
+
+        .stagger-8 {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden">
+
+    <!-- Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-white font-bold text-xl">
+                        <span class="gradient-text">JMM</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Inicio</a>
+                        <a href="#sobre-mi"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Sobre
+                            mí</a>
+                        <a href="#proyectos"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Proyectos</a>
+                        <a href="#contacto"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contacto</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#inicio"
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Inicio</a>
+                    <a href="#sobre-mi"
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Sobre mí</a>
+                    <a href="#proyectos"
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Proyectos</a>
+                    <a href="#contacto"
+                        class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <div class="mb-8">
+                <div
+                    class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1 shadow-2xl pulse-slow">
+                    <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                        <img src="IMG_20240825_195140.jpg" alt="Foto de perfil"
+                            class="w-full h-full rounded-full object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="hero-title text-5xl md:text-7xl font-bold text-white mb-6 leading-tight ">
+                Javier Mesonero Moro
+            </h1>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <div class="tech-badge text-white px-6 py-3 rounded-full text-sm font-medium">
+                    <i class="fas fa-code mr-2"></i>
+                    Desarrollador Multiplataforma
+                </div>
+                <div class="tech-badge text-white px-6 py-3 rounded-full text-sm font-medium">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    Futura Especialización en Ciberseguridad
+                </div>
+            </div>
+
+            <p class="hero-subtitle text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Desarrollador especializado en soluciones tecnológicas innovadoras,
+                con experiencia en <span class="gradient-text font-semibold">Java, Python, APIs</span>
+                <span class="typing-cursor"></span>
+            </p>
+
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-white text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre mí Section -->
+    <section id="sobre-mi" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">
+                    Sobre mí
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Información Personal -->
+                <div class="slide-in-left">
+                    <div class="glassmorphism rounded-2xl card-padding p-8 card-hover">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-user-circle mr-3 text-blue-400"></i>
+                            Mi Historia
+                        </h3>
+                        <div class="space-y-4 text-gray-300 leading-relaxed">
+                            <p>
+                                Soy un desarrollador de <span class="text-blue-400 font-semibold">21 años</span>
+                                apasionado por la tecnología
+                                y la innovación. A lo largo de mi formación, he adquirido un conocimiento profundo en el
+                                desarrollo de aplicaciones multiplataforma, con especial interés en áreas como la
+                                <span class="text-purple-400 font-semibold">integración de sistemas</span>, la gestión
+                                de bases de datos
+                                y el uso de tecnologías como middleware, APIs e inteligencia artificial.
+                            </p>
+                            <p>
+                                No se trata solo de aprender, sino de entender cómo esas tecnologías pueden cambiar la
+                                forma en que se desarrollan soluciones. Mi objetivo es encontrar un entorno desafiante,
+                                donde no solo pueda aportar mis conocimientos, sino también continuar explorando nuevas
+                                tecnologías y adaptarme a las demandas del mercado.
+                            </p>
+                            <p>
+                                Me considero alguien que se enfrenta a los problemas con una
+                                <span class="text-pink-400 font-semibold">mentalidad analítica y resolutiva</span>,
+                                siempre buscando innovar y mejorar los procesos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Habilidades y Datos -->
+                <div class="slide-in-right">
+                    <div class="space-y-6">
+                        <!-- Información Personal -->
+                        <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-info-circle mr-3 text-blue-400"></i>
+                                Datos Personales
+                            </h4>
+                            <div class="space-y-3 text-gray-300">
+                                <div class="flex items-center">
+                                    <i class="fas fa-birthday-cake mr-3 text-pink-400 w-5"></i>
+                                    <span>22 de Mayo, 2004</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope mr-3 text-blue-400 w-5"></i>
+                                    <span>jmesoneromoro@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologías -->
+                        <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-code mr-3 text-purple-400"></i>
+                                Tecnologías
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Java</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">HTML/CSS</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">SQL</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Spring Boot</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Hibernate</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">MuleSoft</span>
+                                <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">APIs REST</span>
+                            </div>
+                        </div>
+
+                        <!-- Experiencia -->
+                        <div class="glassmorphism rounded-2xl card-padding p-6 card-hover">
+                            <h4 class="text-xl font-bold text-white mb-4 flex items-center">
+                                <i class="fas fa-briefcase mr-3 text-yellow-400"></i>
+                                Experiencia
+                            </h4>
+                            <div class="text-gray-300">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-3 h-3 bg-blue-400 rounded-full mt-1.5"></div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h5 class="font-semibold text-white">Becario en VIEWNEXT</h5>
+                                        <p class="text-sm text-white-400">Formación en MuleSoft y IIB</p>
+                                        <p class="text-sm text-white-400">380 horas realizadas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">
+                    Mis Proyectos
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Una selección de mis trabajos más destacados en desarrollo multiplataforma
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Proyecto AsanaYoga -->
+                <div class="fade-in">
+                    <div class="glassmorphism rounded-2xl card-padding p-8 h-full card-hover">
+                        <div class="flex items-center justify-center mb-6">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-r from-teal-400 to-blue-500 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-spa text-white text-2xl"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 text-center">AsanaYoga</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Aplicación multiplataforma desarrollada en Java para la gestión completa de clases de yoga.
+                            Incluye gestión de usuarios, horarios y seguimiento de progreso con interfaz intuitiva.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Java</span>
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">SQLite</span>
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Android Studio</span>
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Buenas Prácticas</span>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <a href="https://github.com/JaviSilver/AsanaYoga.git"
+                                class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 transform hover:scale-105">
+                                <i class="fab fa-github"></i>
+                                Ver Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto Futuro - Placeholder -->
+                <div class="fade-in">
+                    <div
+                        class="glassmorphism rounded-2xl card-padding p-8 h-full card-hover border-2 border-dashed border-gray-600">
+                        <div class="flex items-center justify-center mb-6">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-plus text-white text-2xl"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-white mb-4 text-center">Próximo Proyecto</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed text-center">
+                            Actualmente trabajando en nuevos proyectos que combinan desarrollo multiplataforma
+                            con principios de ciberseguridad. ¡Pronto más novedades!
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-6 justify-center">
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">En desarrollo</span>
+                            <span class="tech-badge text-white px-3 py-1 rounded-full text-sm">Ciberseguridad</span>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="px-6 py-3 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed">
+                                <i class="fas fa-clock mr-2"></i>
+                                Próximamente
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-in">
+                <h2 class="section-title text-4xl md:text-5xl font-bold text-white mb-6">
+                    Conectemos
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    ¿Tienes un proyecto en mente? ¡Hablemos sobre cómo puedo ayudarte!
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-12"></div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 max-w-4xl mx-auto">
+                    <a href="https://github.com/JaviSilver"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-github text-2xl text-gray-300 group-hover:text-white mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">GitHub</span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/javier-mesonero-moro"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-linkedin text-2xl text-gray-300 group-hover:text-blue-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">LinkedIn</span>
+                    </a>
+
+                    <a href="https://twitter.com/JaviSilver12"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-twitter text-2xl text-gray-300 group-hover:text-blue-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">Twitter</span>
+                    </a>
+
+                    <a href="https://youtube.com/@javisilver12"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-youtube text-2xl text-gray-300 group-hover:text-red-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">YouTube</span>
+                    </a>
+
+                    <a href="https://instagram.com/javielhablante"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-instagram text-2xl text-gray-300 group-hover:text-pink-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">Instagram</span>
+                    </a>
+
+                    <a href="https://tiktok.com/@javimm04"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fab fa-tiktok text-2xl text-gray-300 group-hover:text-white mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">TikTok</span>
+                    </a>
+
+                    <a href="#" onclick="downloadCV()"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fas fa-file-alt text-2xl text-gray-300 group-hover:text-green-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">CV</span>
+                    </a>
+
+                    <a onclick="openContactModal()"
+                        class="social-hover glassmorphism rounded-2xl p-4 flex flex-col items-center justify-center aspect-square group">
+                        <i class="fas fa-envelope text-2xl text-gray-300 group-hover:text-blue-400 mb-2"></i>
+                        <span class="text-xs text-white group-hover:text-gray-300">Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Contacto -->
+    <div id="contact-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeContactModal()"></div>
+
+        <!-- Modal Content -->
+        <div class="relative glassmorphism rounded-2xl p-8 w-full max-w-lg transform transition-all duration-300 scale-95 opacity-0"
+            id="modal-content">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                    Contactar
+                </h3>
+                <button onclick="closeContactModal()"
+                    class="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Formulario -->
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label for="contact-name" class="block text-sm font-medium text-gray-300 mb-2">
+                        Nombre *
+                    </label>
+                    <input type="text" id="contact-name" name="name" required
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                        placeholder="Tu nombre completo">
+                </div>
+
+                <div>
+                    <label for="contact-email" class="block text-sm font-medium text-gray-300 mb-2">
+                        Correo electrónico *
+                    </label>
+                    <input type="email" id="contact-email" name="email" required
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                        placeholder="tu@email.com">
+                </div>
+
+                <div>
+                    <label for="contact-subject" class="block text-sm font-medium text-gray-300 mb-2">
+                        Asunto *
+                    </label>
+                    <input type="text" id="contact-subject" name="subject" required
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                        placeholder="¿En qué puedo ayudarte?">
+                </div>
+
+                <div>
+                    <label for="contact-message" class="block text-sm font-medium text-gray-300 mb-2">
+                        Mensaje *
+                    </label>
+                    <textarea id="contact-message" name="message" rows="4" required
+                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
+                        placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-4 pt-4">
+                    <button type="submit" id="submit-btn"
+                        class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Enviar
+                    </button>
+                    <button type="button" onclick="closeContactModal()"
+                        class="flex-1 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        <i class="fas fa-times mr-2"></i>
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 backdrop-blur-sm text-white py-12 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-8">
+                <div class="text-2xl font-bold gradient-text">Javier Mesonero Moro</div>
+                <p class="text-gray-400 mt-2">Desarrollador Multiplataforma | Futuro Especialista en Ciberseguridad</p>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400">
+                    © 2025 Javier Mesonero Moro. Desarrollado con ❤️ usando HTML, TailwindCSS y JavaScript
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables globales
+        let isTyping = false;
+
+        // Intersection Observer para animaciones
+        function setupIntersectionObserver() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos con clases de animación
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Efecto de escritura para el texto del hero
+        function typeWriter() {
+            if (isTyping) return;
+
+            const texts = [
+                'Desarrollador especializado en soluciones tecnológicas innovadoras, con experiencia en Java, Python, APIs y middleware',
+                'Apasionado por la integración de sistemas y las nuevas tecnologías',
+                'Siempre buscando innovar y mejorar los procesos de desarrollo'
+            ];
+
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            const cursor = document.querySelector('.typing-cursor');
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            isTyping = true;
+
+            function type() {
+                const currentText = texts[textIndex];
+
+                if (isDeleting) {
+                    charIndex--;
+                } else {
+                    charIndex++;
+                }
+
+                const displayText = currentText.substring(0, charIndex);
+                heroSubtitle.innerHTML = `${displayText}<span class="typing-cursor"></span>`;
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    typeSpeed = 2000; // Pausa al final
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    typeSpeed = 500; // Pausa antes del siguiente texto
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+
+            // Iniciar después de un delay
+            setTimeout(type, 1000);
+        }
+
+        // Navegación suave
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Cerrar menú móvil si está abierto
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Navbar scroll effect
+        function setupNavbarScrollEffect() {
+            const navbar = document.getElementById('navbar');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Auto-hide navbar on scroll down (opcional)
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+
+                lastScrollTop = scrollTop;
+            });
+        }
+
+        // Mobile menu toggle
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+
+                // Cambiar icono
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.className = 'fas fa-bars text-lg';
+                } else {
+                    icon.className = 'fas fa-times text-lg';
+                }
+            });
+
+            // Cerrar menú al hacer click fuera
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.className = 'fas fa-bars text-lg';
+                }
+            });
+        }
+
+        // Función para descargar CV PDF
+        function downloadCV() {
+            // Ruta al archivo PDF (debe estar en la misma carpeta que el HTML o ajustar la ruta)
+            const pdfUrl = 'CV Javi.pdf';
+
+            // Crear enlace y forzar descarga
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'CV_Javier_Mesonero_Moro.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Mostrar notificación
+            showNotification('CV descargado correctamente', 'success');
+        }
+
+        // Sistema de notificaciones
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${type === 'success' ? 'bg-green-500' :
+                type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+                } text-white`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' :
+                    type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'
+                } mr-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Mostrar notificación
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Ocultar notificación
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Efecto parallax suave
+        function setupParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+
+                const shapes = document.querySelectorAll('.shape');
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.2;
+                    shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
+        }
+
+        // Contador de estadísticas (animación)
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 200;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 10);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+
+        // Easter egg - Konami Code
+        function setupEasterEgg() {
+            const konamiCode = [
+                'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+                'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+                'KeyB', 'KeyA'
+            ];
+            let userInput = [];
+
+            document.addEventListener('keydown', (e) => {
+                userInput.push(e.code);
+
+                if (userInput.length > konamiCode.length) {
+                    userInput.shift();
+                }
+
+                if (userInput.join(',') === konamiCode.join(',')) {
+                    // Activar modo desarrollador
+                    document.body.style.filter = 'hue-rotate(180deg)';
+                    showNotification('¡Modo desarrollador activado! 🚀', 'success');
+
+                    setTimeout(() => {
+                        document.body.style.filter = 'none';
+                    }, 3000);
+
+                    userInput = [];
+                }
+            });
+        }
+
+        // Lazy loading para imágenes
+        function setupLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('opacity-0');
+                        img.classList.add('opacity-100');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Tema oscuro/claro (toggle)
+        function setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    const isLight = document.body.classList.contains('light-theme');
+                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                });
+
+                // Cargar tema guardado
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            }
+        }
+
+        // Inicialización cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function () {
+            // Configurar todas las funcionalidades
+            setupIntersectionObserver();
+            setupSmoothScrolling();
+            setupNavbarScrollEffect();
+            setupMobileMenu();
+            setupContactForm();
+            setupParallaxEffect();
+            setupLazyLoading();
+            setupEasterEgg();
+
+
+            // Iniciar efecto de escritura después de un delay
+            setTimeout(() => {
+                typeWriter();
+            }, 1500);
+
+            // Animar contadores cuando estén visibles
+            const countersSection = document.querySelector('#sobre-mi');
+            if (countersSection) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            counterObserver.unobserve(entry.target);
+                        }
+                    });
+                });
+                counterObserver.observe(countersSection);
+            }
+
+            // Preloader (opcional)
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            }
+
+            console.log('🚀 Portfolio de Javier Mesonero Moro cargado correctamente');
+        });
+        // Funciones globales disponibles
+        window.downloadCV = downloadCV;
+        window.showNotification = showNotification;
+        window.openContactModal = openContactModal;
+        window.closeContactModal = closeContactModal;
+        // Gestión de errores global
+        window.addEventListener('error', function (e) {
+            console.error('Error detectado:', e.error);
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function () {
+            const loadTime = performance.now();
+            console.log(`⚡ Página cargada en ${Math.round(loadTime)}ms`);
+        });
+
+        // Cleanup al cerrar la página
+        window.addEventListener('beforeunload', function () {
+            // Limpiar observers y event listeners si es necesario
+            console.log('👋 Hasta la vista!');
+        });
+
+        // Funciones del modal de contacto
+        function openContactModal() {
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('modal-content');
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+            // Animación de entrada
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('modal-content');
+
+            // Animación de salida
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                // Limpiar formulario
+                document.getElementById('contact-form').reset();
+            }, 300);
+        }
+
+     // Corrección en la función setupContactForm
+function setupContactForm() {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Validación básica
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim();
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!name || !email || !subject || !message) {
+                showNotification('Por favor, completa todos los campos', 'error');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Por favor, introduce un email válido', 'error');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+            submitBtn.disabled = true;
+
+            try {
+                // Configuración de EmailJS - AQUÍ ESTÁ LA CORRECCIÓN PRINCIPAL
+                const templateParams = {
+                    subject: subject,
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                    reply_to: email    // Importante para poder responder
+                };
+
+                console.log('Enviando con parámetros:', templateParams);
+
+                // Usar emailjs.send con la sintaxis correcta
+                const response = await emailjs.send(
+                    'service_cghct3q',  // Service ID
+                    'template_0umevdp', // Template ID
+                    templateParams,
+                    'X6I2MUCr2EMnoPwhk' // Public Key (opcional si ya está inicializado)
+                );
+
+                console.log('Respuesta de EmailJS:', response);
+
+                if (response.status === 200) {
+                    showNotification('¡Mensaje enviado correctamente! Te responderé pronto.', 'success');
+                    form.reset();
+                    closeContactModal();
+                } else {
+                    throw new Error('Error en el envío');
+                }
+
+            } catch (error) {
+                console.error('Error completo:', error);
+                console.error('Tipo de error:', error.name);
+                console.error('Mensaje de error:', error.message);
+                
+                // Mensaje de error más específico
+                let errorMessage = 'Error al enviar mensaje. ';
+                if (error.message.includes('network')) {
+                    errorMessage += 'Problema de conexión.';
+                } else if (error.message.includes('template')) {
+                    errorMessage += 'Error en la plantilla.';
+                } else {
+                    errorMessage += 'Inténtalo de nuevo.';
+                }
+                
+                showNotification(errorMessage, 'error');
+
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+}
+
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('contact-modal');
+                if (!modal.classList.contains('hidden')) {
+                    closeContactModal();
+                }
+            }
+        });
+
+        // Verificación de debugging mejorada
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Debugging EmailJS:');
+    console.log('- EmailJS cargado:', typeof emailjs !== 'undefined');
+    console.log('- Versión:', emailjs?.version || 'No disponible');
+    
+    // Verificar que los IDs existen
+    console.log('- Service ID configurado: service_cghct3q');
+    console.log('- Template ID configurado: template_0umevdp');
+    console.log('- Public Key configurado: X6I2MUCr2EMnoPwhk');
+    
+    // Verificar elementos del DOM
+    console.log('- Formulario encontrado:', !!document.getElementById('contact-form'));
+    console.log('- Modal encontrado:', !!document.getElementById('contact-modal'));
+});
+
+// Función alternativa para probar la conexión
+function testEmailJS() {
+    if (typeof emailjs === 'undefined') {
+        console.error('EmailJS no está cargado');
+        return;
+    }
+    
+    emailjs.send(
+        'service_cghct3q',
+        'template_0umevdp',
+        {
+            subject: 'Prueba',
+            from_name: 'Test',
+            from_email: 'test@test.com',
+            message: 'Mensaje de prueba',
+            reply_to: 'test@test.com'
+        }
+    ).then(
+        function(response) {
+            console.log('Test SUCCESS!', response.status, response.text);
+        },
+        function(error) {
+            console.log('Test FAILED...', error);
+        }
+    );
+}
+
+    </script>
+</body>
+
+</html>
