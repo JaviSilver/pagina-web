@@ -1,4 +1,3 @@
-
 # 🌐 Portfolio Web - Javier Mesonero Moro
 
 Este es el portfolio personal de **Javier Mesonero Moro**, desarrollador multiplataforma con pasión por la integración de sistemas, APIs y ciberseguridad.  
@@ -52,21 +51,3 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 
 ## 📂 Organización del proyecto (sugerida)
 
-```
-📁 /assets
-  ├── 📁 img
-  ├── 📁 pdf
-  └── 📁 js
-
-📄 index.html
-📄 README.md
-📄 styles.css (si decides separar Tailwind personalizado)
-📄 scripts.js (si decides modularizar funciones JS)
-```
-
-## 🧑 Autor
-
-**Javier Mesonero Moro**  
-📧 jmesoneromoro@gmail.com  
-🔗 [LinkedIn](https://linkedin.com/in/javier-mesonero-moro)  
-🔗 [GitHub](https://github.com/JaviSilver)
