@@ -355,9 +355,13 @@ function updateCarousel() {
  * Galería de Imágenes de Proyectos
  */
 function initializeGalleries() {
-    galleryCurrentIndex["asana-gallery"] = 0;
-    showImage("asana-gallery", 0);
+    document.querySelectorAll(".gallery-container").forEach(container => {
+        const id = container.id;
+        galleryCurrentIndex[id] = 0;
+        showImage(id, 0);
+    });
 }
+
 
 function showImage(galleryId, index) {
     const gallery = document.getElementById(galleryId);
