@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setupEasterEgg();
     setupThemeToggle(); // <- Llama a la versión corregida
     setupCVModal();
-    setupChatbot();
     initializeGalleries();
 
     // Iniciar efectos con retardo
@@ -548,97 +547,8 @@ function setupCVModal() {
     });
 }
 
-
 /* ========================================================================== */
-/* 7. FUNCIONALIDADES DEL CHATBOT                                             */
-/* ========================================================================== */
-
-function setupChatbot() {
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotMessages = document.getElementById('chatbot-messages');
-    const chatbotInput = document.getElementById('chatbot-input');
-    const chatbotSend = document.getElementById('chatbot-send');
-    const chatbotSuggestions = document.getElementById('chatbot-suggestions');
-    
-    if (!chatbotToggle) return;
-
-    const faqData = {
-        '¿quién eres?': 'Soy Javier Mesonero Moro, desarrollador multiplataforma de 21 años con experiencia en Java, Python y APIs. 🚀',
-        '¿cómo te llamas?': 'Mi nombre es Javier Mesonero Moro, desarrollador multiplataforma de 21 años. 👋',
-        '¿cuántos años tienes?': 'Tengo 21 años y soy un desarrollador joven pero con experiencia práctica. 🎂',
-        '¿qué tecnologías usas?': 'Trabajo con Java, Python, JavaScript, Spring Boot, Hibernate, MuleSoft, APIs REST, HTML/CSS y SQL. 💻',
-        '¿tienes experiencia?': 'Sí! Realicé 380 horas como becario en VIEWNEXT, especializándome en MuleSoft e IIB. 💼',
-        '¿qué proyectos has hecho?': 'Mi proyecto destacado es AsanaYoga, una app de gestión de clases de yoga desarrollada en Java. ¡Revisa mi GitHub! 🧘‍♂️',
-        '¿cómo contactarte?': 'Puedes escribirme a jmesoneromoro@gmail.com o seguirme en mis redes sociales 📧',
-        'cv': 'Puedes descargar mi CV haciendo clic en el botón CV de la sección de contacto 📄',
-        'gracias': '¡De nada! Si tienes más preguntas, no dudes en consultar. 😊',
-        'adiós': '¡Hasta luego! Espero haberte ayudado. 👋'
-    };
-    
-    const suggestions = ['¿Quién eres?', '¿Qué tecnologías usas?', '¿Cómo contactarte?', 'Proyectos'];
-
-    function addMessage(message, isUser = false) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `p-2 rounded-lg max-w-xs break-words ${isUser ? 'bg-blue-500 text-white ml-auto' : 'bg-gray-700 text-white'}`;
-        messageDiv.textContent = message;
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
-
-    function findAnswer(question) {
-        const normalizedQuestion = question.toLowerCase().trim();
-        return faqData[normalizedQuestion] || 'No tengo esa información, pero puedes contactarme directamente a jmesoneromoro@gmail.com 😊';
-    }
-
-    function sendMessage() {
-        const question = chatbotInput.value.trim();
-        if (!question) return;
-
-        addMessage(question, true);
-        chatbotInput.value = '';
-
-        setTimeout(() => {
-            const answer = findAnswer(question);
-            addMessage(answer);
-        }, 500);
-    }
-    
-    window.sendSuggestion = function(text) {
-        chatbotInput.value = text;
-        sendMessage();
-    };
-    
-    function showSuggestions() {
-        chatbotSuggestions.innerHTML = suggestions.map(suggestion =>
-            `<button class="px-2 py-1 bg-gray-700 text-white text-xs rounded hover:bg-gray-600" onclick="sendSuggestion('${suggestion}')">${suggestion}</button>`
-        ).join('');
-    }
-
-    chatbotToggle.addEventListener('click', () => {
-        chatbotWindow.classList.toggle('hidden');
-        if (!chatbotWindow.classList.contains('hidden')) {
-            if (chatbotMessages.children.length === 0) {
-                addMessage('¡Hola! Soy el asistente virtual de Javier. ¿En qué puedo ayudarte? 👋');
-                showSuggestions();
-            }
-        }
-    });
-
-    chatbotClose.addEventListener('click', () => {
-        chatbotWindow.classList.add('hidden');
-    });
-
-    chatbotSend.addEventListener('click', sendMessage);
-    chatbotInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
-}
-
-
-/* ========================================================================== */
-/* 8. MODAL DE CONTACTO                                                       */
+/* 7. MODAL DE CONTACTO                                                       */
 /* ========================================================================== */
 
 function openContactModal() {
@@ -676,7 +586,7 @@ document.addEventListener('keydown', (e) => {
 
 
 /* ========================================================================== */
-/* 9. FUNCIONALIDADES ADICIONALES (EASTER EGG, PERFORMANCE)                   */
+/* 8. FUNCIONALIDADES ADICIONALES (EASTER EGG, PERFORMANCE)                   */
 /* ========================================================================== */
 
 /**
@@ -709,7 +619,7 @@ window.addEventListener("load", function () {
 
 
 /* ========================================================================== */
-/* 10. ASIGNACIÓN A `WINDOW` Y MANEJO DE ERRORES                              */
+/* 9. ASIGNACIÓN A `WINDOW` Y MANEJO DE ERRORES                              */
 /* ========================================================================== */
 
 // Hacer funciones accesibles globalmente si se llaman desde el HTML (onclick)
@@ -735,3 +645,4 @@ window.addEventListener("error", function (e) {
 window.addEventListener("beforeunload", function () {
     console.log("👋 ¡Hasta la vista!");
 });
+
