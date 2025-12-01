@@ -48,6 +48,5 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 - [ ] Sección con “Mis herramientas favoritas” usando iconos animados.
 - [ ] Mostrar una **cita motivadora aleatoria** al cargar la página.
 
-## 📂 Organización del proyecto (sugerida)
 
 
