@@ -21,7 +21,6 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 - 📄 Botón para visualizar y descargar el CV en PDF.
 - 📬 Formulario de contacto en modal animado (con EmailJS).
 - 🌘 Toggle de tema claro/oscuro con animación y persistencia en `localStorage`.
-- 🤖 Chatbot con interfaz flotante.
 - 📱 Menú responsivo con navegación animada para móviles.
 - 🔁 Animaciones en scroll y carga (fade-in, slide-in, typing, counters).
 - 🖼️ Lazy loading para imágenes y efecto parallax de fondo.
@@ -50,4 +49,5 @@ El sitio está diseñado para mostrar habilidades, proyectos, experiencia profes
 - [ ] Mostrar una **cita motivadora aleatoria** al cargar la página.
 
 ## 📂 Organización del proyecto (sugerida)
+
 
