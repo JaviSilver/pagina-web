@@ -593,7 +593,7 @@ document.addEventListener('keydown', (e) => {
  * Konami Code Easter Egg.
  */
 function setupEasterEgg() {
-    const konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "KeyB", "KeyA"];
+    const konamiCode = ["ArrowUp", "ArrowDown", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "KeyB", "KeyA"];
     let userInput = [];
 
     document.addEventListener("keydown", (e) => {
@@ -603,7 +603,7 @@ function setupEasterEgg() {
         if (userInput.join(",") === konamiCode.join(",")) {
             document.body.style.filter = "hue-rotate(180deg)";
             showNotification("¡Modo desarrollador activado! 🚀", "success");
-            setTimeout(() => document.body.style.filter = "none", 3000);
+            setTimeout(() => document.body.style.filter = "none", 30000);
             userInput = [];
         }
     });
@@ -645,4 +645,5 @@ window.addEventListener("error", function (e) {
 window.addEventListener("beforeunload", function () {
     console.log("👋 ¡Hasta la vista!");
 });
+
 
