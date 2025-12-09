@@ -287,9 +287,9 @@ function typeWriter() {
     isTyping = true;
 
     const texts = [
-        "Desarrollador especializado en soluciones tecnológicas innovadoras, con experiencia en Java, Python, APIs y middleware",
-        "Apasionado por la integración de sistemas y las nuevas tecnologías",
-        "Siempre buscando innovar y mejorar los procesos de desarrollo",
+        "Desarrollador de 21 años especializado en soluciones multiplataforma, con experiencia en diseño de APIs, arquitectura de sistemas y gestión de bases de datos.",
+        "Actualmente cursando ASIR y enfocado en crear soluciones tecnológicas eficientes, escalables e innovadoras.",
+        "Perfil analítico, proactivo y orientado a resultados, con mentalidad de mejora continua y aprendizaje constante."
     ];
     const heroSubtitle = document.querySelector(".hero-subtitle");
     let textIndex = 0;
@@ -645,5 +645,6 @@ window.addEventListener("error", function (e) {
 window.addEventListener("beforeunload", function () {
     console.log("👋 ¡Hasta la vista!");
 });
+
 
 
